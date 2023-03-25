@@ -1,0 +1,161 @@
+-- @path Site=/mymetamodel/MetaModel/LangageWebsite/mymetamodel.ecore
+-- @path API=/mymetamodel/MetaModel/RESTApi/MMRestApi.ecore
+
+-- Transformation du modèle de site pédagogique en un modèle API RESTful
+module Site2API;
+-- Module Template
+	create OUT : API from IN : Site;
+
+	-- Transformation des departements
+	rule TransformDepartement {
+	    from
+	        s : Site!Departement
+	    to
+	        a : API!Resource (uri_template <- 'departement/{id}')
+	    do
+	        -- Copie des propriétés de la formation dans la ressource API
+	        a.nom <- s.nom;
+	        a.description <- s.description;
+	        -- Création d'une sous-ressource pour formation du departementn
+	        for (form in s.formation) {
+	            form_a : API!Resource (uri_template <- '/departement/{id}/formations/{id}')
+	            form_a.nom <- form.nom;
+	            -- Ajout de la sous-ressource au modèle API
+	            a.subresources <- form_a;
+	        }
+    }
+	
+	-- Transformation des formations
+	rule TransformFormation {
+	    from
+	        s : Site!Formation
+	    to
+	        a : API!Resource (uri_template <- '/formations/{id}')
+	    do
+	        -- Copie des propriétés de la formation dans la ressource API
+	        a.nom <- s.nom;
+	        a.description <- s.description;
+	        -- Création d'une sous-ressource pour chaque semestre de la formation
+	        for (sem in s.semestre) {
+	            sem_a : API!Resource (uri_template <- '/formations/{id}/semesters/{numero}')
+	            sem_a.sem_number <- sem.numero;
+	            -- Ajout de la sous-ressource au modèle API
+	            a.subresources <- sem_a;
+	        }
+    }
+	
+	-- Transformation des semestres
+	rule TransformSemestre {
+	    from
+	        s : Site!Semestre
+	    to
+	        a : API!Resource (uri_template <- '/formations/{formation_id}/semesters/{semester_number}')
+	    do
+	        -- Copie des propriétés du semestre dans la ressource API
+	        a.nom <- s.nom;
+	        a.description <- s.description;
+	        -- Création d'une sous-ressource pour chaque UE du semestre
+	        for (ue in s.ues) {
+	            ue_a : API!Resource (uri_template <- '/formations/{formation_id}/semesters/{semester_number}/ues/{ue_id}')
+	            ue_a.ue_id <- ue.id;
+	            -- Ajout de la sous-ressource au modèle API
+	            a.subresources <- ue_a;
+	        }
+    }
+	
+	-- Transformation des UE
+	rule TransformUE {
+	    from
+	        s : Site!UE
+	    to
+	        a : API!Resource (uri_template <- '/formations/{formation_id}/semesters/{semester_number}/ues/{ue_id}')
+	    do
+	        -- Copie des propriétés de l'UE dans la ressource API
+	        a.nom <- s.nom;
+	        a.description <- s.description;
+	        -- Ajout d'une propriété pour les ressources associées à l'UE
+	        a.resources <- s.resources;
+	        -- Ajout d'une sous-ressource pour les responsables de l'UE
+	        responsables_a : API!Resource (uri_template <- '/formations/{formation_id}/semesters/{semester_number}/ues/{ue_id}/responsables')
+	        -- Ajout de la sous-ressource au modèle API
+	        a.subresources <- responsables_a;
+    }
+
+	-- Transformation des responsables d'UE
+	rule TransformResponsables {
+	    from
+	        s : Site!UE
+	    to
+	        a : API!Resource (uri_template <- '/formations/{formation_id}/semesters/{semester_number}/ues/{ue_id}/responsables')
+	    do
+	        -- Copie des propriétés des responsables dans la ressource API
+	        a.nom <- s.responsable.nom;
+	        a.email <- s.responsable.mail;
+    }
+	
+	-- OPERATIONS
+	-- Récupérer toutes les formations
+	rule get_all_formations {
+		from
+			s: Site
+		to
+			a: API
+		do {
+			-- Créer une nouvelle ressource de type "formation" dans l'API
+			var formationResource: RESOURCE = API!RESOURCE.create(name := "formation", api := a);
+	
+			-- Ajouter une opération GET sur la ressource pour récupérer toutes les formations
+			var getAllOperation: OPERATION = RESOURCE!OPERATION.create(name := "getAll", resource := formationResource, method := "GET");
+			
+			-- Ajouter une URI pour l'opération GET
+			var uriTemplate: URI_TEMPLATE = OPERATION!URI_TEMPLATE.create(value := "formations", operation := getAllOperation);
+		}
+	}
+	-- Créer une nouvelle formation
+	rule create_formation {
+		from
+			f: Formation
+			s: Site
+		to
+			a: API
+		do {
+			-- Créer une nouvelle ressource de type "formation" dans l'API
+			var formationResource: RESOURCE = API!RESOURCE.create(name := "formation", api := a);
+	
+			-- Ajouter une opération POST sur la ressource pour créer une nouvelle formation
+			var createOperation: OPERATION = RESOURCE!OPERATION.create(name := "create", resource := formationResource, method := "POST");
+			
+			-- Ajouter une URI pour l'opération POST
+			var uriTemplate: URI_TEMPLATE = OPERATION!URI_TEMPLATE.create(value := "formations", operation := createOperation);
+	
+			-- Ajouter une représentation pour l'opération POST
+			var representation: REPRESENTATION = OPERATION!REPRESENTATION.create(mediaType := "application/json", operation := createOperation);
+			
+			-- Ajouter une contrainte pour l'opération POST
+			var constraint: CONSTRAINT = OPERATION!CONSTRAINT.create(expression := "self.nom->notEmpty()", operation := createOperation);
+		}
+	}
+	
+	-- Récupérer une formation spécifique
+	rule get_formation {
+		from
+			f: Formation
+			s: Site
+		to
+			a: API
+		do {
+			-- Créer une nouvelle ressource de type "formation" dans l'API
+			var formationResource: RESOURCE = API!RESOURCE.create(name := "formation", api := a);
+	
+			-- Ajouter une opération GET sur la ressource pour récupérer une formation spécifique
+			var getOperation: OPERATION = RESOURCE!OPERATION.create(name := "get", resource := formationResource, method := "GET");
+			
+			-- Ajouter une URI pour l'opération GET
+			var uriTemplate: URI_TEMPLATE = OPERATION!URI_TEMPLATE.create(value := "formations/{id}", operation := getOperation);
+	
+			-- Ajouter un paramètre pour l'URI
+			var uriParameter: URI_PARAMETER = URI_TEMPLATE!URI_PARAMETER.create(name := "id", uriTemplate := uriTemplate);
+		}
+	}
+	
+	
