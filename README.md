@@ -17,9 +17,9 @@
 [![Apache 2.0 License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-# mde_project
-Projet sur l'IDM INF5039
-
+## mde_project
+#Projet sur l'IDM INF5039
+ingenierie dirigée par les modèle : conception d'un langage pour décrire un portail pédagogique puis métamodélisation d'un REST API PHP(natif) et génération de codes sources via ATL 
 ![EMF] ![OCL] ![ATL]  ![PHP]  ![JSON] 
  
 
@@ -27,7 +27,7 @@ Projet sur l'IDM INF5039
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/static/v1?label=CONTRIBUTORS&message=04&color=brightgreen&style=for-the-badge
+[contributors-shield]: https://img.shields.io/static/v1?label=CONTRIBUTORS&message=0104&color=brightgreen&style=for-the-badge
 [contributors-url]: https://github.com/jiofidelus/tsotsa/contributors
 [forks-shield]: https://img.shields.io/static/v1?label=FORKS&message=00&color=yellowgreen&style=for-the-badge
 [forks-url]: https://github.com/jiofidelus/tsotsa/network/members
