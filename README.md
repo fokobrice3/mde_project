@@ -18,7 +18,7 @@
 ## mde_project
 #Projet sur l'IDM INF5039
 
-<h4>Ingenierie dirigée par les modèle.</h4>
+<h3>Ingenierie dirigée par les modèle.</h3>
 
 -> Langage PHP(natif) 
 -> Option 2
@@ -33,23 +33,23 @@
 ![EMF] ![OCL] ![ATL]  ![PHP]  ![JSON] 
  <br/>
  <div align="left">
- ##metamodel langage site web
+<h4>metamodel langage site web</h4>
  <a href="https://github.com/fokobrice3/mde_project">
-    <img src="Site_MetaModel.jpg" alt="metamodel" width="480" height="auto">
+    <img src="Site_MetaModel.jpg" alt="metamodel" width="572" height="auto">
   </a>
  
- ##Instance du metamodel langage site web
+<h4>Instance du metamodel langage site web</h4>
   <a href="https://github.com/fokobrice3/mde_project">
     <img src="SiteInfo_Model.png" alt="instance_site" width="480" height="auto">
   </a>
 </div>
  <div align="left">
- ##metamodel Rest API site web
+<h4>metamodel Rest API site web</h4>
  <a href="https://github.com/fokobrice3/mde_project">
-    <img src="RestApi_metamodel.jpg" alt="metamodel" width="480" height="auto">
+    <img src="RestApi_metamodel.jpg" alt="metamodel" width="570" height="auto">
   </a>
  
- ##Instance Rest API site web
+<h4>Instance Rest API site web</h4>
   <a href="https://github.com/fokobrice3/mde_project">
     <img src="RestAPI_Model.png" alt="instance API" width="420" height="auto">
   </a>
