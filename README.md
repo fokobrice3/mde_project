@@ -35,23 +35,23 @@
  <div align="left">
  #metamodel langage site web
  <a href="https://github.com/fokobrice3/mde_project">
-    <img src="Site_MetaModel.jpg" alt="metamodel">
+    <img src="Site_MetaModel.jpg" alt="metamodel" width="480" height="auto">
   </a>
  
  #Instance du metamodel langage site web
   <a href="https://github.com/fokobrice3/mde_project">
-    <img src="SiteInfo_Model.png" alt="instance_site" width="800" height="600">
+    <img src="SiteInfo_Model.png" alt="instance_site" width="480" height="auto">
   </a>
 </div>
  <div align="left">
  #metamodel Rest API site web
  <a href="https://github.com/fokobrice3/mde_project">
-    <img src="RestApi_metamodel.jpg" alt="metamodel" width="800" height="600">
+    <img src="RestApi_metamodel.jpg" alt="metamodel" width="480" height="auto">
   </a>
  
  #Instance Rest API site web
   <a href="https://github.com/fokobrice3/mde_project">
-    <img src="RestAPI_Model.png" alt="instance API" width="800" height="600">
+    <img src="RestAPI_Model.png" alt="instance API" width="480" height="600">
   </a>
 </div>
 
