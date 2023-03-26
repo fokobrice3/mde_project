@@ -21,13 +21,21 @@
 <h3>Ingenierie dirigée par les modèle.</h3>
 
 -> Langage PHP(natif) 
+
 -> Option 2
+
 -> Métamodèle du langage du site
+
 -> instance du langage du site
+
 -> Métamodèle de la REST API
+
 -> Instance de la Rest API
+
 -> Règles de transformation ATL
+
 -> Génération de codes sources PHP via ATL
+
 -> Documentation 
 
 ![EMF] ![OCL] ![ATL]  ![PHP]  ![JSON] 
