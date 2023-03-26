@@ -14,12 +14,19 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Issues][issues-shield]][issues-url]
-[![Apache 2.0 License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![INF5039][license-shield]][license-url] 
 
 ## mde_project
 #Projet sur l'IDM INF5039
-ingenierie dirigée par les modèle : conception d'un langage pour décrire un portail pédagogique puis métamodélisation d'un REST API PHP(natif) et génération de codes sources via ATL 
+
+ingenierie dirigée par les modèle.
+
+Conception d'un langage pour décrire un portail pédagogique 
+
+Métamodélisation d'une REST API PHP(natif) 
+
+Génération de codes sources PHP via ATL 
+
 ![EMF] ![OCL] ![ATL]  ![PHP]  ![JSON] 
  
 
@@ -38,12 +45,12 @@ ingenierie dirigée par les modèle : conception d'un langage pour décrire un p
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://github.com/jiofidelus/tsotsa/
 [product-screenshot]: images/screenshot.png
-[EMF]: https://img.shields.io/badge/_-JAVASCRIPT-orange
-[OCL]: https://img.shields.io/badge/_-PYTHON-yellow
+[EMF]: https://img.shields.io/badge/_-EMF-orange
+[OCL]: https://img.shields.io/badge/_-OCL-yellow
 
-[ATL]: https://img.shields.io/badge/_-CSV-lightgrey
+[ATL]: https://img.shields.io/badge/_-ATL-lightgrey
 [JSON]: https://img.shields.io/badge/_-JSON-lightgrey
-[PHP]: https://img.shields.io/badge/_-BLAZE%20GRAPH-lightgrey
+[PHP]: https://img.shields.io/badge/_-PHP-lightgrey
 
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
