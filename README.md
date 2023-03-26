@@ -18,29 +18,41 @@
 ## mde_project
 #Projet sur l'IDM INF5039
 
-ingenierie dirigée par les modèle.
+<h4>Ingenierie dirigée par les modèle.</h4>
 
-Conception d'un langage pour décrire un portail pédagogique 
-
-Métamodélisation d'une REST API PHP(natif) 
-
-Génération de codes sources PHP via ATL 
+-> Langage PHP(natif) 
+-> Option 2
+-> Métamodèle du langage du site
+-> instance du langage du site
+-> Métamodèle de la REST API
+-> Instance de la Rest API
+-> Règles de transformation ATL
+-> Génération de codes sources PHP via ATL
+-> Documentation 
 
 ![EMF] ![OCL] ![ATL]  ![PHP]  ![JSON] 
  <br/>
  <div align="left">
  #metamodel langage site web
  <a href="https://github.com/fokobrice3/mde_project">
-    <img src="Site_MetaModel.jpg" alt="metamodel" width="800" height="600">
+    <img src="Site_MetaModel.jpg" alt="metamodel">
   </a>
+ 
  #Instance du metamodel langage site web
+  <a href="https://github.com/fokobrice3/mde_project">
+    <img src="SiteInfo_Model.png" alt="instance_site" width="800" height="600">
+  </a>
 </div>
  <div align="left">
  #metamodel Rest API site web
  <a href="https://github.com/fokobrice3/mde_project">
-    <img src="Site_MetaModel.jpg" alt="metamodel" width="800" height="600">
+    <img src="RestApi_metamodel.jpg" alt="metamodel" width="800" height="600">
   </a>
+ 
  #Instance Rest API site web
+  <a href="https://github.com/fokobrice3/mde_project">
+    <img src="RestAPI_Model.png" alt="instance API" width="800" height="600">
+  </a>
 </div>
 
 
