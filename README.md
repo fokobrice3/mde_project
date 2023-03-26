@@ -13,8 +13,7 @@
 -->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
-[![Issues][issues-shield]][issues-url]
-[![INF5039][license-shield]][license-url] 
+[![Issues][issues-shield]][issues-url] 
 
 ## mde_project
 #Projet sur l'IDM INF5039
